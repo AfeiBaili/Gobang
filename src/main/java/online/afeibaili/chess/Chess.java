@@ -21,7 +21,7 @@ import java.util.List;
 public final class Chess {
     public static final HashMap<Long, PlayChess> CHESS_ROOM = new HashMap<>();
     public static final List<Chess> CHESS = new ArrayList<>();
-    public static final Font ZHOU_ZI_FANG_TI = FileHandle.getFontByFile("fonts/舟方日明.otf");
+    public static final Font ZHOU_ZI_FANG_TI = FileHandle.getFontByFile("fonts/zhoufangmingri.otf");
     public final Color chessboardBackgroundColor = Color.decode("#2b2b2b");
     public final Color chessboardBorderColor = Color.decode("#87939A");
     public final Color fontColor = Color.decode("#AFB1B3");
