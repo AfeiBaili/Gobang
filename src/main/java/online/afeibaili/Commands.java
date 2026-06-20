@@ -7,6 +7,7 @@ import online.afeibaili.util.BotHandle;
 import online.afeibaili.util.Method;
 
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static online.afeibaili.chess.Chess.CHESS_ROOM;
 
@@ -14,7 +15,19 @@ public class Commands {
     public static final HashMap<String, Method> COMMANDS = new HashMap<>();
 
     public static void load() {
-        COMMANDS.put("菜单", ((parma, e) -> COMMANDS.keySet().toString()));
+        COMMANDS.put("下棋菜单", ((parma, e) -> {
+            StringBuilder builder = new StringBuilder();
+            AtomicInteger count = new AtomicInteger();
+            int keySize = COMMANDS.size();
+            COMMANDS.keySet().forEach(key -> {
+                        builder.append(key);
+                        if (count.get() != keySize - 1)
+                            builder.append("\n");
+                        count.getAndIncrement();
+                    }
+            );
+            return builder.toString();
+        }));
         COMMANDS.put("下棋", (parma, e) -> {
             if (parma.length != 2) {
                 return "下棋@QQ 或者 下棋 @QQ";
